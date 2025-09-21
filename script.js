@@ -98,3 +98,9 @@ function addProduct(productName, productPrice, productQuantity,productOs){
     )
 
 }
+
+function removeProduct(identifier){
+    inventory = inventory.filter(product =>product.id !== identifier && product.name !==  identifier)
+    return inventory
+ 
+    }
