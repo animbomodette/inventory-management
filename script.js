@@ -69,3 +69,32 @@ name: "techno 360",
 quantity: 11,
 status : "available",
 os: "android"}]
+
+
+function statusCheck(quantity){ 
+    let status = ""
+
+        if(quantity <= 0) {
+         status = "out of stock"
+        }
+        else if(quantity <= 10){
+          status ="almost out of stock"
+        }
+        else {
+            status = "available"
+        }
+          return status
+
+}
+function addProduct(productName, productPrice, productQuantity,productOs){
+    inventory.push (
+        {id: idGenerator(),
+        name: productName,
+        price: productPrice,
+        quantity: productQuantity, 
+        status: statusCheck(productQuantity),
+        os:productOs
+        }
+    )
+
+}
