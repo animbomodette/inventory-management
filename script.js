@@ -71,6 +71,17 @@ status : "available",
 os: "android"}
 ]
 
+function idGenerator(){ 
+    let id = ""
+    while (id.length < 4){
+        id += Math.floor(Math.random() * 10)
+    }
+    for(let i = 0; i < inventory.length; i++){
+        if( id === inventory[i].id) {
+            idGenerator()
+        }
+    } return id
+}
 
 function statusCheck(quantity){ 
     let status = ""
@@ -87,6 +98,7 @@ function statusCheck(quantity){
           return status
 
 }
+
 function addProduct(productName, productPrice, productQuantity,productOs){
     inventory.push (
         {
