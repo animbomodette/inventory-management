@@ -137,3 +137,12 @@ function updateStock(identifier, operator, change){
     }
       
 } 
+
+function generateReport(){
+    console.table(`ID         NAME          PRICE      QUANTITY       STATUS       OS`)
+      for (i = 0; i<inventory.length; i++) {
+        console.table(`${inventory[i].id}         ${inventory[i].name}          ${inventory[i].price}         ${inventory[i].quantity}     ${inventory[i].status}     ${inventory[i].os}`)
+        
+      
+}
+}
