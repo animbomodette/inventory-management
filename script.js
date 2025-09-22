@@ -68,7 +68,8 @@ name: "techno 360",
  price: 150,
 quantity: 11,
 status : "available",
-os: "android"}]
+os: "android"}
+]
 
 
 function statusCheck(quantity){ 
@@ -88,12 +89,13 @@ function statusCheck(quantity){
 }
 function addProduct(productName, productPrice, productQuantity,productOs){
     inventory.push (
-        {id: idGenerator(),
-        name: productName,
-        price: productPrice,
-        quantity: productQuantity, 
-        status: statusCheck(productQuantity),
-        os:productOs
+        {
+            id: idGenerator(),
+            name: productName,
+            price: productPrice,
+            quantity: productQuantity, 
+            status: statusCheck(productQuantity),
+            os:productOs
         }
     )
 
@@ -103,4 +105,23 @@ function removeProduct(identifier){
     inventory = inventory.filter(product =>product.id !== identifier && product.name !==  identifier)
     return inventory
  
+}
+
+function updateStock(identifier, operator, change){
+    for (i = 0; i<inventory.length; i++) {
+        if (identifier === inventory[i].id || identifier === inventory[i].name ){
+            if(operator === "ADD") {
+               inventory[i].quantity += change
+               inventory[i].status =  statusCheck(inventory[i].quantity)
+               return inventory[i].quantity
+            }
+            else{
+               inventory[i].quantity -= change  
+               inventory[i].status =  statusCheck(inventory[i].quantity)
+               return inventory[i].quantity
+            }
+            
+        } 
     }
+      
+} 
